@@ -48,10 +48,10 @@ func _on_TutorialButton_pressed() -> void:
 func _on_ImportButton_pressed() -> void:
 	get_node("/root/TitleScreen/Import").visible = not get_node("/root/TitleScreen/Import").visible
 	get_node("/root/TitleScreen/Buttons").visible = not get_node("/root/TitleScreen/Buttons").visible
-	Config.import = true
-	Config.importData = get_node("/root/TitleScreen/Import/TextEdit").text
 	
 	if not get_node("/root/TitleScreen/Import").visible:
+		Config.import = true
+		Config.importData = get_node("/root/TitleScreen/Import/TextEdit").text
 		get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 
 

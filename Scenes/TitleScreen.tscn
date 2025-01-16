@@ -78,6 +78,7 @@ text = "Singleplayer"
 script = ExtResource("1_8v2ok")
 
 [node name="ImportButton" type="Button" parent="Buttons"]
+layout_mode = 0
 offset_top = 260.0
 offset_right = 360.0
 offset_bottom = 360.0
@@ -130,6 +131,7 @@ offset_right = 750.0
 offset_bottom = 330.0
 
 [node name="ImportButton" type="Button" parent="Import"]
+layout_mode = 0
 offset_top = 360.0
 offset_right = 360.0
 offset_bottom = 460.0
@@ -138,6 +140,7 @@ text = "Import"
 script = ExtResource("1_8v2ok")
 
 [node name="CancelImportButton" type="Button" parent="Import"]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 360.0
 offset_right = 750.0

@@ -162,6 +162,7 @@ offset_right = 500.0
 offset_bottom = 250.0
 
 [node name="TurnLabel" type="Label" parent="Progress"]
+layout_mode = 0
 offset_left = 50.0
 offset_right = 250.0
 offset_bottom = 50.0
@@ -170,6 +171,7 @@ text = "1: Turn 1"
 vertical_alignment = 1
 
 [node name="TileLabel" type="Label" parent="Progress"]
+layout_mode = 0
 offset_left = 250.0
 offset_right = 450.0
 offset_bottom = 50.0

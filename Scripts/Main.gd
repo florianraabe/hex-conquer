@@ -188,7 +188,8 @@ func import_data(importData: String) -> void:
 			currentPlayer = Config.opponent
 		Config.gameMode = data_received.meta.gameMode
 		Config.multiplayerSelected = data_received.meta.multiplayerSelected
-		display_story("Game succesfully imported!")
+		if Config.import:
+			display_story("Game succesfully imported!")
 	else:
 		display_story("JSON Parse Error! Game could not be imported!")
 
