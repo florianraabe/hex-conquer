@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://650opffl6g5r"]
+[gd_scene load_steps=6 format=3 uid="uid://650opffl6g5r"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_8v2ok"]
 [ext_resource type="Texture2D" uid="uid://c2i4jiy0y6p6l" path="res://Assets/Images/main-menu-background.jpg" id="1_mscbp"]
@@ -13,6 +13,11 @@ shadow_offset = Vector2(10, 5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag28y"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gt60s"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -38,41 +43,54 @@ label_settings = SubResource("LabelSettings_88wb5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="."]
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 585.0
+offset_top = 560.0
+offset_right = 1335.0
+offset_bottom = 920.0
+
+[node name="StartButton" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 500.0
-offset_right = 1160.0
-offset_bottom = 600.0
+offset_right = 750.0
+offset_bottom = 100.0
 theme_override_font_sizes/font_size = 32
 text = "Start"
 script = ExtResource("1_8v2ok")
 
-[node name="ModeButton" type="Button" parent="."]
+[node name="ModeButton" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 620.0
-offset_right = 1160.0
-offset_bottom = 720.0
+offset_top = 130.0
+offset_right = 360.0
+offset_bottom = 230.0
 theme_override_font_sizes/font_size = 32
 text = "Territory Control"
 script = ExtResource("1_8v2ok")
 
-[node name="MultiplayerButton" type="Button" parent="."]
-offset_left = 760.0
-offset_top = 740.0
-offset_right = 1160.0
-offset_bottom = 840.0
+[node name="MultiplayerButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 130.0
+offset_right = 750.0
+offset_bottom = 230.0
 theme_override_font_sizes/font_size = 32
 text = "Singleplayer"
 script = ExtResource("1_8v2ok")
 
-[node name="HelpButton" type="Button" parent="."]
+[node name="ImportButton" type="Button" parent="Buttons"]
+offset_top = 260.0
+offset_right = 360.0
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 32
+text = "Import Game"
+script = ExtResource("1_8v2ok")
+
+[node name="HelpButton" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 860.0
-offset_right = 1160.0
-offset_bottom = 960.0
+offset_left = 390.0
+offset_top = 260.0
+offset_right = 750.0
+offset_bottom = 360.0
 theme_override_font_sizes/font_size = 32
 text = "How To Play"
 script = ExtResource("1_8v2ok")
@@ -91,41 +109,48 @@ script = ExtResource("1_8v2ok")
 [node name="Import" type="Control" parent="."]
 visible = false
 anchors_preset = 0
-offset_left = 480.0
-offset_right = 1440.0
-offset_bottom = 1080.0
+offset_left = 585.0
+offset_top = 460.0
+offset_right = 1335.0
+offset_bottom = 960.0
 
 [node name="Label" type="Label" parent="Import"]
 layout_mode = 0
-offset_top = 50.0
-offset_right = 960.0
-offset_bottom = 150.0
-theme_override_font_sizes/font_size = 32
-text = "Paste the config of a game below and press import!"
+offset_right = 750.0
+offset_bottom = 100.0
+text = "Paste the config of a game below:"
+label_settings = SubResource("LabelSettings_gt60s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextEdit" type="TextEdit" parent="Import"]
 layout_mode = 0
-offset_top = 200.0
-offset_right = 960.0
-offset_bottom = 980.0
+offset_top = 100.0
+offset_right = 750.0
+offset_bottom = 330.0
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_left = 760.0
-offset_top = 1000.0
-offset_right = 1160.0
-offset_bottom = 1040.0
+[node name="ImportButton" type="Button" parent="Import"]
+offset_top = 360.0
+offset_right = 360.0
+offset_bottom = 460.0
+theme_override_font_sizes/font_size = 32
+text = "Import"
+script = ExtResource("1_8v2ok")
 
-[node name="ImportButton" type="LinkButton" parent="CenterContainer"]
-layout_mode = 2
-toggle_mode = true
-text = "Import Game"
+[node name="CancelImportButton" type="Button" parent="Import"]
+offset_left = 390.0
+offset_top = 360.0
+offset_right = 750.0
+offset_bottom = 460.0
+theme_override_font_sizes/font_size = 32
+text = "Cancel"
+script = ExtResource("1_8v2ok")
 
-[connection signal="pressed" from="StartButton" to="StartButton" method="_on_StartButton_pressed"]
-[connection signal="pressed" from="ModeButton" to="ModeButton" method="_on_ModeButton_pressed"]
-[connection signal="pressed" from="MultiplayerButton" to="StartButton" method="_on_MultiplayerButton_pressed"]
-[connection signal="pressed" from="HelpButton" to="HelpButton" method="_on_HelpButton_pressed"]
-[connection signal="ready" from="VersionLabel" to="StartButton" method="_on_VersionLabel_ready"]
-[connection signal="pressed" from="CenterContainer/ImportButton" to="StartButton" method="_on_ImportButton_pressed"]
+[connection signal="pressed" from="Buttons/StartButton" to="Buttons/StartButton" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Buttons/ModeButton" to="Buttons/ModeButton" method="_on_ModeButton_pressed"]
+[connection signal="pressed" from="Buttons/MultiplayerButton" to="Buttons/StartButton" method="_on_MultiplayerButton_pressed"]
+[connection signal="pressed" from="Buttons/ImportButton" to="Buttons/StartButton" method="_on_ImportButton_pressed"]
+[connection signal="pressed" from="Buttons/HelpButton" to="Buttons/HelpButton" method="_on_HelpButton_pressed"]
+[connection signal="ready" from="VersionLabel" to="Buttons/StartButton" method="_on_VersionLabel_ready"]
+[connection signal="pressed" from="Import/ImportButton" to="Buttons/StartButton" method="_on_ImportButton_pressed"]
+[connection signal="pressed" from="Import/CancelImportButton" to="Buttons/StartButton" method="_on_CancelImportButton_pressed"]

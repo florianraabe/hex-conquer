@@ -56,7 +56,6 @@ func end_game(quit: bool) -> void:
 	
 	# reset other config data
 	Config.import = false
-	Config.multiplayerSelected = false
 	Config.tutorial = false
 	
 	# make a restart possible
@@ -162,7 +161,7 @@ func export_data() -> String:
 	
 	return export_string
 
-
+# Import game from json
 func import_data(importData: String) -> void:
 	var json = JSON.new()
 	var import_status = json.parse(importData)
@@ -189,9 +188,11 @@ func import_data(importData: String) -> void:
 			currentPlayer = Config.opponent
 		Config.gameMode = data_received.meta.gameMode
 		Config.multiplayerSelected = data_received.meta.multiplayerSelected
+		display_story("Game succesfully imported!")
 	else:
-		print("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
+		display_story("JSON Parse Error! Game could not be imported!")
 
+# Display tutorial explaining the game
 func tutorial() -> void:
 	
 	if tutorialStep == 0:
