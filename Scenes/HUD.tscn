@@ -147,41 +147,43 @@ offset_bottom = 1080.0
 color = Color(0.164706, 0.215686, 0.254902, 1)
 
 [node name="TitleLabel" type="Label" parent="."]
-offset_right = 400.0
+offset_right = 500.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 50
 text = "HEX Conquer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitButton" type="Button" parent="."]
-offset_left = 400.0
-offset_top = 25.0
-offset_right = 475.0
-offset_bottom = 75.0
-text = "Quit"
-
-[node name="TurnLabel" type="Label" parent="."]
-offset_top = 100.0
-offset_right = 500.0
-offset_bottom = 150.0
-theme_override_font_sizes/font_size = 25
-text = "Turn 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Progress" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 150.0
+offset_top = 100.0
 offset_right = 500.0
 offset_bottom = 250.0
+
+[node name="TurnLabel" type="Label" parent="Progress"]
+offset_left = 50.0
+offset_right = 250.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "1: Turn 1"
+vertical_alignment = 1
+
+[node name="TileLabel" type="Label" parent="Progress"]
+offset_left = 250.0
+offset_right = 450.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "1 / 5 Tiles"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="LabelPlayer1" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 50.0
+offset_top = 50.0
 offset_right = 173.0
-offset_bottom = 50.0
+offset_bottom = 100.0
 text = "Player 1"
 label_settings = SubResource("LabelSettings_0ntik")
 horizontal_alignment = 1
@@ -190,9 +192,9 @@ vertical_alignment = 1
 [node name="LabelPlayer2" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 50.0
+offset_top = 100.0
 offset_right = 173.0
-offset_bottom = 100.0
+offset_bottom = 150.0
 text = "Bot"
 label_settings = SubResource("LabelSettings_0ntik")
 horizontal_alignment = 1
@@ -202,18 +204,18 @@ vertical_alignment = 1
 modulate = Color(0, 0, 1, 1)
 layout_mode = 0
 offset_left = 200.0
-offset_top = 10.0
+offset_top = 60.0
 offset_right = 450.0
-offset_bottom = 40.0
+offset_bottom = 90.0
 value = 60.0
 show_percentage = false
 
 [node name="ProgressLabelPlayer1" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 200.0
-offset_top = 10.0
+offset_top = 60.0
 offset_right = 450.0
-offset_bottom = 40.0
+offset_bottom = 90.0
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -222,59 +224,74 @@ vertical_alignment = 1
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 200.0
-offset_top = 60.0
+offset_top = 110.0
 offset_right = 450.0
-offset_bottom = 90.0
+offset_bottom = 140.0
 value = 30.0
 show_percentage = false
 
 [node name="ProgressLabelPlayer2" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 200.0
-offset_top = 60.0
+offset_top = 110.0
 offset_right = 450.0
-offset_bottom = 90.0
+offset_bottom = 140.0
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TileLabel" type="Label" parent="."]
-offset_top = 250.0
-offset_right = 500.0
-offset_bottom = 300.0
-theme_override_font_sizes/font_size = 25
-text = "1 / 5 Tiles"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ResetTurnButton" type="LinkButton" parent="."]
-offset_left = 400.0
-offset_top = 262.5
-offset_right = 450.0
-offset_bottom = 287.5
-text = "Reset"
-
-[node name="Resources" type="Control" parent="."]
+[node name="Buttons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 275.0
 offset_right = 500.0
-offset_bottom = 575.0
+offset_bottom = 350.0
+
+[node name="ExportButton" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 50.0
+offset_right = 150.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 20
+text = "Export"
+
+[node name="ResetTurnButton" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 175.0
+offset_right = 325.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 20
+text = "Reset Turn"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 350.0
+offset_right = 450.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="Resources" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 370.0
+offset_right = 500.0
+offset_bottom = 620.0
 
 [node name="Title" type="Label" parent="Resources"]
 layout_mode = 0
 offset_right = 500.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
 text = "Resources"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Labels" type="Control" parent="Resources"]
 anchors_preset = 0
-offset_top = 100.0
+offset_top = 50.0
 offset_right = 500.0
-offset_bottom = 200.0
+offset_bottom = 150.0
 
 [node name="Lumber" type="Sprite2D" parent="Resources/Labels"]
 position = Vector2(100, 50)
@@ -299,9 +316,9 @@ texture = ExtResource("5_uacix")
 [node name="Amounts" type="Control" parent="Resources"]
 layout_mode = 2
 anchors_preset = 0
-offset_top = 200.0
+offset_top = 150.0
 offset_right = 500.0
-offset_bottom = 250.0
+offset_bottom = 200.0
 
 [node name="Label1" type="Label" parent="Resources/Amounts"]
 layout_mode = 2
@@ -341,9 +358,9 @@ horizontal_alignment = 1
 
 [node name="Increases" type="Control" parent="Resources"]
 anchors_preset = 0
-offset_top = 250.0
+offset_top = 200.0
 offset_right = 500.0
-offset_bottom = 300.0
+offset_bottom = 250.0
 
 [node name="Label1" type="Label" parent="Resources/Increases"]
 layout_mode = 0
@@ -384,15 +401,15 @@ horizontal_alignment = 1
 [node name="Structures" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 560.0
+offset_top = 630.0
 offset_right = 500.0
-offset_bottom = 910.0
+offset_bottom = 930.0
 
 [node name="Title" type="Label" parent="Structures"]
 layout_mode = 0
 offset_right = 500.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
 text = "Structures"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -400,9 +417,9 @@ vertical_alignment = 1
 [node name="Buttons" type="BoxContainer" parent="Structures"]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 100.0
+offset_top = 50.0
 offset_right = 450.0
-offset_bottom = 200.0
+offset_bottom = 150.0
 alignment = 1
 
 [node name="Button1" type="Button" parent="Structures/Buttons"]
@@ -432,7 +449,7 @@ disabled = true
 [node name="Labels" type="Control" parent="Structures"]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 200.0
+offset_top = 150.0
 offset_right = 500.0
 offset_bottom = 300.0
 
@@ -679,28 +696,17 @@ centered = false
 
 [node name="EndTurnButton" type="Button" parent="."]
 offset_left = 50.0
-offset_top = 930.0
+offset_top = 950.0
 offset_right = 450.0
-offset_bottom = 1030.0
+offset_bottom = 1050.0
 theme_override_font_sizes/font_size = 32
 text = "End Turn"
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_left = 50.0
-offset_top = 1040.0
-offset_right = 450.0
-offset_bottom = 1070.0
-
-[node name="ExportButton" type="LinkButton" parent="CenterContainer"]
-layout_mode = 2
-toggle_mode = true
-text = "Export"
-
-[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="ResetTurnButton" to="." method="_on_ResetTurnButton_pressed"]
+[connection signal="pressed" from="Buttons/ExportButton" to="." method="_on_exportButton_pressed"]
+[connection signal="pressed" from="Buttons/ResetTurnButton" to="." method="_on_ResetTurnButton_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
-[connection signal="pressed" from="CenterContainer/ExportButton" to="." method="_on_exportButton_pressed"]

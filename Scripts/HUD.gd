@@ -9,8 +9,8 @@ extends CanvasLayer
 
 
 # text displaying the current turn
-@onready var turn: Label = get_node("TurnLabel")
-@onready var tile: Label = get_node("TileLabel")
+@onready var turn: Label = get_node("Progress/TurnLabel")
+@onready var tile: Label = get_node("Progress/TileLabel")
 
 # progress bar displaying the relative amount of conquered territory
 @onready var labelPlayer1: Label = get_node("Progress/LabelPlayer1")
@@ -48,7 +48,7 @@ extends CanvasLayer
 @onready var endTurnButton: Node = get_node("EndTurnButton")
 
 # export button
-@onready var exportButton: Node = get_node("CenterContainer/ExportButton")
+@onready var exportButton: Node = get_node("Buttons/ExportButton")
 
 
 func init_hud() -> void:
@@ -80,11 +80,10 @@ func update_hud():
 	structureCost4.text = Config.mine.cost_string()
 	
 	# set number of turn
+	turn.text = str(main.currentPlayer.terrain_id) + ": Turn " + str(main.turnNumber)
 	if Config.gameMode == 0:
-		turn.text = "Player " + str(main.currentPlayer.terrain_id) + ": Turn " + str(main.turnNumber) + " / " + str(Config.maxNumberOfTurns)
-	else:
-		turn.text = "Player " + str(main.currentPlayer.terrain_id) + ": Turn " + str(main.turnNumber)
-
+		turn.text += " / " + str(Config.maxNumberOfTurns)
+	
 	tile.text = str(map.tilesPerTurn) + " / " + str(Config.maxTilesPerTurn) + " Tiles"
 	
 	# set progress bar
@@ -152,7 +151,7 @@ func _on_exportButton_pressed() -> void:
 	$/root/Main/TextEdit.text = main.export_data()
 	$/root/Main/TextEdit.visible = not $/root/Main/TextEdit.visible
 	
-	if exportButton.text == "Hide export":
+	if exportButton.text != "Export":
 		exportButton.text = "Export"
 	else:
-		exportButton.text = "Hide export"
+		exportButton.text = "Hide\nExport"
