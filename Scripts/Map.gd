@@ -10,6 +10,8 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var main: Node = get_node("/root/Main")
 @onready var hud: Node = get_node("/root/Main/HUD")
 
+var firstOpponentTileConquered: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -187,8 +189,9 @@ func conquer_tile(pos_clicked: Vector2) -> void:
 		
 		# story
 		if pos_clicked_data.terrain_set != main.currentPlayer.terrain_id \
-			and pos_clicked_data.terrain_set != 0:
+			and pos_clicked_data.terrain_set != 0 and not firstOpponentTileConquered:
 			main.display_story("A hostile tile was conquered.\nPrepare for the response!")
+			firstOpponentTileConquered = true
 
 # Conquer tile for opponent
 func conquer_random_tile(player: Player.PlayerObject) -> void:
