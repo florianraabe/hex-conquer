@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cip47tc7xiun5"]
+
+[ext_resource type="Texture2D" uid="uid://bg2r1gyi71xq" path="res://Assets/Resources/lumber.png" id="1_tlokg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mbs7k"]
+texture = ExtResource("1_tlokg")
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gv8xe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07i0t"]
+texture = ExtResource("1_tlokg")
+modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gux1q"]
+texture = ExtResource("1_tlokg")
+modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hxuc"]
+texture = ExtResource("1_tlokg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_redwo"]
+texture = ExtResource("1_tlokg")
+modulate_color = Color(0.419608, 0.419608, 0.419608, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_mbs7k")
+Button/styles/focus = SubResource("StyleBoxEmpty_gv8xe")
+Button/styles/hover = SubResource("StyleBoxTexture_07i0t")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_gux1q")
+Button/styles/normal = SubResource("StyleBoxTexture_7hxuc")
+Button/styles/pressed = SubResource("StyleBoxTexture_redwo")

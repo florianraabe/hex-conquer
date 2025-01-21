@@ -146,6 +146,27 @@ func _on_button_4_pressed() -> void:
 	map.place_structure(Config.mine)
 	update_hud()
 
+# Trade gold for lumber
+func _on_lumber_button_pressed() -> void:
+	if main.currentPlayer.gold > 0:
+		main.currentPlayer.gold -= 1
+		main.currentPlayer.lumber += 1
+		update_hud()
+
+# Trade gold for stone
+func _on_stone_button_pressed() -> void:
+	if main.currentPlayer.gold > 0:
+		main.currentPlayer.gold -= 1
+		main.currentPlayer.stone += 1
+		update_hud()
+
+# Trade gold for grain
+func _on_grain_button_pressed() -> void:
+	if main.currentPlayer.gold > 0:
+		main.currentPlayer.gold -= 1
+		main.currentPlayer.grain += 1
+		update_hud()
+
 # Export the game state
 func _on_exportButton_pressed() -> void:
 	$/root/Main/TextEdit.text = main.export_data()

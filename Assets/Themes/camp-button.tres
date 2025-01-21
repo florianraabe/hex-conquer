@@ -1,6 +1,32 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://xp0q1vgrcetg"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://xp0q1vgrcetg"]
 
-[ext_resource type="Texture2D" uid="uid://cvl1uobkvbilx" path="res://Assets/Structures/Camp/black-camp.png" id="1_jgvrg"]
+[ext_resource type="Texture2D" uid="uid://cvl1uobkvbilx" path="res://Assets/Structures/Camp/black-camp.png" id="1_kej53"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vd1bg"]
+texture = ExtResource("1_kej53")
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irixw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cg834"]
+texture = ExtResource("1_kej53")
+modulate_color = Color(0.60933, 0.60933, 0.60933, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fajtn"]
+texture = ExtResource("1_kej53")
+modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0gyj"]
+texture = ExtResource("1_kej53")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h04ki"]
+texture = ExtResource("1_kej53")
+modulate_color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [resource]
-texture = ExtResource("1_jgvrg")
+Button/styles/disabled = SubResource("StyleBoxTexture_vd1bg")
+Button/styles/focus = SubResource("StyleBoxEmpty_irixw")
+Button/styles/hover = SubResource("StyleBoxTexture_cg834")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_fajtn")
+Button/styles/normal = SubResource("StyleBoxTexture_u0gyj")
+Button/styles/pressed = SubResource("StyleBoxTexture_h04ki")
