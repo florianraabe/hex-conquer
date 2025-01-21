@@ -10,6 +10,12 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var main: Node = get_node("/root/Main")
 @onready var hud: Node = get_node("/root/Main/HUD")
 
+var firstOpponentTileConquered: bool = false
+var firstOpponentMoreResources: bool = false
+var firstStructureBuilt: bool = false
+var firstResourceStructureBuilt: bool = false
+var firstVillageConquered: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -152,6 +158,18 @@ func place_structure(structure: Structure.StructureObject) -> void:
 	
 	# update hud
 	hud.update_hud()
+	
+	# story
+	if (get_number_of_owned_tiles_by_terrain(Config.camp.terrain_id) > 0 \
+		or get_number_of_owned_tiles_by_terrain(Config.tower.terrain_id) > 0) \
+		and not firstStructureBuilt:
+		main.display_story("The first defense structure was built! It provides defensive advantages and fortifies the territory!")
+		firstStructureBuilt = true
+	elif (get_number_of_owned_tiles_by_terrain(Config.farm.terrain_id) > 0 \
+		or get_number_of_owned_tiles_by_terrain(Config.mine.terrain_id) > 0) \
+		and not firstResourceStructureBuilt:
+		main.display_story("The first production site was built! It harvests resources and helps expanding the empire	!")
+		firstResourceStructureBuilt = true
 
 # Things to do on the end of a turn
 func end_turn() -> void:
@@ -160,6 +178,12 @@ func end_turn() -> void:
 	remove_disconnected_tiles()
 	tilesPerTurn = 0
 	
+	# story
+	if not Config.multiplayerSelected:
+		if Config.opponent.lumber > Config.player.lumber + 10 and not firstOpponentMoreResources:
+			main.display_story("Your opponent is pulling ahead with a significant resource advantage! Focus on gathering resources and turn the tide!")
+			firstOpponentMoreResources = true
+
 # Conquer tile
 func conquer_tile(pos_clicked: Vector2) -> void:
 	var pos_clicked_data = get_cell_tile_data(pos_clicked)
@@ -187,9 +211,13 @@ func conquer_tile(pos_clicked: Vector2) -> void:
 		
 		# story
 		if pos_clicked_data.terrain_set != main.currentPlayer.terrain_id \
-			and pos_clicked_data.terrain_set != 0:
-			main.display_story("You have conquered an opponent possessed tile.\nPrepare for the response!")
-
+			and pos_clicked_data.terrain_set != 0 and not firstOpponentTileConquered:
+			main.display_story("A hostile tile was conquered.\nPrepare for the response!")
+			firstOpponentTileConquered = true
+		elif get_number_of_owned_tiles_by_terrain(Config.village.terrain_id) > 0 \
+			and not firstVillageConquered:
+			main.display_story("The first village was conquered! It provides valuable gold!")
+			firstVillageConquered = true
 
 # Conquer tile for opponent
 func conquer_random_tile(player: Player.PlayerObject) -> void:

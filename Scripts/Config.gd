@@ -1,7 +1,7 @@
 extends Node
 
 # --- Version ---
-const version: String = "3.0.0"
+const version: String = "4.0.0"
 
 # --- Import ---
 var import: bool = false
@@ -81,7 +81,6 @@ var mine: Structure.StructureObject = Structure.StructureObject.new(9, 2, [0,1],
 var placable_structures: Array = [camp, tower, farm, mine]
 
 # --- Players ---
-
 var player: Player.PlayerObject = Player.PlayerObject.new(1, Vector2i(12, 21))
 var opponent: Player.PlayerObject = Player.PlayerObject.new(2, Vector2i(12, 1))
 

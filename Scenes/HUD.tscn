@@ -1,14 +1,17 @@
-[gd_scene load_steps=41 format=3 uid="uid://bcpwm5nnjml6g"]
+[gd_scene load_steps=16 format=3 uid="uid://bcpwm5nnjml6g"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_ur7ax"]
 [ext_resource type="Texture2D" uid="uid://bg2r1gyi71xq" path="res://Assets/Resources/lumber.png" id="2_jmkj3"]
+[ext_resource type="Theme" uid="uid://cip47tc7xiun5" path="res://Assets/Themes/lumber-button.tres" id="2_w2y46"]
 [ext_resource type="Texture2D" uid="uid://fd03va1peca3" path="res://Assets/Resources/stone.png" id="3_lx8te"]
+[ext_resource type="Theme" uid="uid://dny6pv2imwjx5" path="res://Assets/Themes/stone-button.tres" id="3_p04mw"]
 [ext_resource type="Texture2D" uid="uid://ccmtd8s0g7lvx" path="res://Assets/Resources/grain.png" id="4_6f2n6"]
+[ext_resource type="Theme" uid="uid://bk3u7p3u4f1jc" path="res://Assets/Themes/grain-button.tres" id="4_b8hi6"]
 [ext_resource type="Texture2D" uid="uid://jatrjna157y2" path="res://Assets/Resources/gold.png" id="5_uacix"]
-[ext_resource type="Texture2D" uid="uid://cvl1uobkvbilx" path="res://Assets/Structures/Camp/black-camp.png" id="6_hl73y"]
-[ext_resource type="Texture2D" uid="uid://brgbxmo3nhi8w" path="res://Assets/Structures/Tower/black-tower.png" id="7_i6bhi"]
-[ext_resource type="Texture2D" uid="uid://c4v4itcjbtijd" path="res://Assets/Structures/Farm/black-farm.png" id="8_lxia4"]
-[ext_resource type="Texture2D" uid="uid://jodmsjifpf0s" path="res://Assets/Structures/Mine/black-mine.png" id="9_h0cck"]
+[ext_resource type="Theme" uid="uid://xp0q1vgrcetg" path="res://Assets/Themes/camp-button.tres" id="6_w1q2m"]
+[ext_resource type="Theme" uid="uid://d00sqi52tc2a3" path="res://Assets/Themes/tower-button.tres" id="7_js2d1"]
+[ext_resource type="Theme" uid="uid://223sg5slir3a" path="res://Assets/Themes/farm-button.tres" id="8_h07v0"]
+[ext_resource type="Theme" uid="uid://wxyxxr8ioyve" path="res://Assets/Themes/mine-button.tres" id="9_qfkyb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ntik"]
 font_size = 32
@@ -19,122 +22,6 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_raq0k"]
 font_size = 32
 font_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vd1bg"]
-texture = ExtResource("6_hl73y")
-modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irixw"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cg834"]
-texture = ExtResource("6_hl73y")
-modulate_color = Color(0.60933, 0.60933, 0.60933, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fajtn"]
-texture = ExtResource("6_hl73y")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0gyj"]
-texture = ExtResource("6_hl73y")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h04ki"]
-texture = ExtResource("6_hl73y")
-modulate_color = Color(0.419608, 0.419608, 0.419608, 1)
-
-[sub_resource type="Theme" id="Theme_s2int"]
-Button/styles/disabled = SubResource("StyleBoxTexture_vd1bg")
-Button/styles/focus = SubResource("StyleBoxEmpty_irixw")
-Button/styles/hover = SubResource("StyleBoxTexture_cg834")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_fajtn")
-Button/styles/normal = SubResource("StyleBoxTexture_u0gyj")
-Button/styles/pressed = SubResource("StyleBoxTexture_h04ki")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1p087"]
-texture = ExtResource("7_i6bhi")
-modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3g1b6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dubyu"]
-texture = ExtResource("7_i6bhi")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0kue"]
-texture = ExtResource("7_i6bhi")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vg0e8"]
-texture = ExtResource("7_i6bhi")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnu0w"]
-texture = ExtResource("7_i6bhi")
-modulate_color = Color(0.419608, 0.419608, 0.419608, 1)
-
-[sub_resource type="Theme" id="Theme_ujyfl"]
-Button/styles/disabled = SubResource("StyleBoxTexture_1p087")
-Button/styles/focus = SubResource("StyleBoxEmpty_3g1b6")
-Button/styles/hover = SubResource("StyleBoxTexture_dubyu")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_j0kue")
-Button/styles/normal = SubResource("StyleBoxTexture_vg0e8")
-Button/styles/pressed = SubResource("StyleBoxTexture_lnu0w")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljpgy"]
-texture = ExtResource("8_lxia4")
-modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41wy7"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkg72"]
-texture = ExtResource("8_lxia4")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rro1"]
-texture = ExtResource("8_lxia4")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jetbn"]
-texture = ExtResource("8_lxia4")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6ees"]
-texture = ExtResource("8_lxia4")
-modulate_color = Color(0.419608, 0.419608, 0.419608, 1)
-
-[sub_resource type="Theme" id="Theme_5p0gv"]
-Button/styles/disabled = SubResource("StyleBoxTexture_ljpgy")
-Button/styles/focus = SubResource("StyleBoxEmpty_41wy7")
-Button/styles/hover = SubResource("StyleBoxTexture_nkg72")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_6rro1")
-Button/styles/normal = SubResource("StyleBoxTexture_jetbn")
-Button/styles/pressed = SubResource("StyleBoxTexture_e6ees")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6nlq"]
-texture = ExtResource("9_h0cck")
-modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnpbu"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhs3l"]
-texture = ExtResource("9_h0cck")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqf5k"]
-texture = ExtResource("9_h0cck")
-modulate_color = Color(0.607843, 0.607843, 0.607843, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvuij"]
-texture = ExtResource("9_h0cck")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y7yr4"]
-texture = ExtResource("9_h0cck")
-modulate_color = Color(0.419608, 0.419608, 0.419608, 1)
-
-[sub_resource type="Theme" id="Theme_mny3k"]
-Button/styles/disabled = SubResource("StyleBoxTexture_l6nlq")
-Button/styles/focus = SubResource("StyleBoxEmpty_qnpbu")
-Button/styles/hover = SubResource("StyleBoxTexture_xhs3l")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_qqf5k")
-Button/styles/normal = SubResource("StyleBoxTexture_cvuij")
-Button/styles/pressed = SubResource("StyleBoxTexture_y7yr4")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 offset = Vector2(1420, 0)
@@ -154,27 +41,38 @@ text = "HEX Conquer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TurnLabel" type="Label" parent="."]
-offset_top = 100.0
-offset_right = 500.0
-offset_bottom = 150.0
-theme_override_font_sizes/font_size = 25
-text = "Turn 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Progress" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 150.0
+offset_top = 100.0
 offset_right = 500.0
 offset_bottom = 250.0
+
+[node name="TurnLabel" type="Label" parent="Progress"]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 250.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "1: Turn 1"
+vertical_alignment = 1
+
+[node name="TileLabel" type="Label" parent="Progress"]
+layout_mode = 0
+offset_left = 250.0
+offset_right = 450.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "1 / 5 Tiles"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="LabelPlayer1" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 50.0
+offset_top = 50.0
 offset_right = 173.0
-offset_bottom = 50.0
+offset_bottom = 100.0
 text = "Player 1"
 label_settings = SubResource("LabelSettings_0ntik")
 horizontal_alignment = 1
@@ -183,9 +81,9 @@ vertical_alignment = 1
 [node name="LabelPlayer2" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 50.0
+offset_top = 100.0
 offset_right = 173.0
-offset_bottom = 100.0
+offset_bottom = 150.0
 text = "Bot"
 label_settings = SubResource("LabelSettings_0ntik")
 horizontal_alignment = 1
@@ -195,74 +93,121 @@ vertical_alignment = 1
 modulate = Color(0, 0, 1, 1)
 layout_mode = 0
 offset_left = 200.0
-offset_top = 10.0
+offset_top = 60.0
 offset_right = 450.0
-offset_bottom = 40.0
+offset_bottom = 90.0
 value = 60.0
 show_percentage = false
 
-[node name="ProgressBarPlayer2" type="ProgressBar" parent="Progress"]
-modulate = Color(1, 0, 0, 1)
+[node name="ProgressLabelPlayer1" type="Label" parent="Progress"]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 60.0
 offset_right = 450.0
 offset_bottom = 90.0
-value = 30.0
-show_percentage = false
-
-[node name="TileLabel" type="Label" parent="."]
-offset_top = 250.0
-offset_right = 500.0
-offset_bottom = 300.0
-theme_override_font_sizes/font_size = 25
-text = "1 / 5 Tiles"
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResetTurnButton" type="LinkButton" parent="."]
-offset_left = 400.0
-offset_top = 262.0
+[node name="ProgressBarPlayer2" type="ProgressBar" parent="Progress"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 110.0
 offset_right = 450.0
-offset_bottom = 287.0
-text = "Reset"
+offset_bottom = 140.0
+value = 30.0
+show_percentage = false
 
-[node name="Resources" type="Control" parent="."]
+[node name="ProgressLabelPlayer2" type="Label" parent="Progress"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 110.0
+offset_right = 450.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 275.0
 offset_right = 500.0
-offset_bottom = 575.0
+offset_bottom = 350.0
+
+[node name="ExportButton" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 50.0
+offset_right = 150.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 20
+text = "Export"
+
+[node name="ResetTurnButton" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 175.0
+offset_right = 325.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 20
+text = "Reset Turn"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_left = 350.0
+offset_right = 450.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="Resources" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 370.0
+offset_right = 500.0
+offset_bottom = 620.0
 
 [node name="Title" type="Label" parent="Resources"]
 layout_mode = 0
 offset_right = 500.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
 text = "Resources"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Labels" type="Control" parent="Resources"]
 anchors_preset = 0
-offset_top = 100.0
+offset_top = 50.0
 offset_right = 500.0
-offset_bottom = 200.0
+offset_bottom = 150.0
 
-[node name="Lumber" type="Sprite2D" parent="Resources/Labels"]
-position = Vector2(100, 50)
+[node name="Lumber" type="Button" parent="Resources/Labels"]
+offset_left = 62.0
+offset_top = 8.0
+offset_right = 252.0
+offset_bottom = 218.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_jmkj3")
+size_flags_horizontal = 3
+theme = ExtResource("2_w2y46")
 
-[node name="Stone" type="Sprite2D" parent="Resources/Labels"]
-position = Vector2(200, 50)
+[node name="Stone" type="Button" parent="Resources/Labels"]
+offset_left = 162.0
+offset_top = 8.0
+offset_right = 352.0
+offset_bottom = 218.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_lx8te")
+size_flags_horizontal = 3
+theme = ExtResource("3_p04mw")
 
-[node name="Grain" type="Sprite2D" parent="Resources/Labels"]
-position = Vector2(300, 50)
+[node name="Grain" type="Button" parent="Resources/Labels"]
+offset_left = 262.0
+offset_top = 8.0
+offset_right = 452.0
+offset_bottom = 218.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_6f2n6")
+size_flags_horizontal = 3
+theme = ExtResource("4_b8hi6")
 
 [node name="Gold" type="Sprite2D" parent="Resources/Labels"]
 position = Vector2(400, 50)
@@ -272,9 +217,9 @@ texture = ExtResource("5_uacix")
 [node name="Amounts" type="Control" parent="Resources"]
 layout_mode = 2
 anchors_preset = 0
-offset_top = 200.0
+offset_top = 150.0
 offset_right = 500.0
-offset_bottom = 250.0
+offset_bottom = 200.0
 
 [node name="Label1" type="Label" parent="Resources/Amounts"]
 layout_mode = 2
@@ -314,9 +259,9 @@ horizontal_alignment = 1
 
 [node name="Increases" type="Control" parent="Resources"]
 anchors_preset = 0
-offset_top = 250.0
+offset_top = 200.0
 offset_right = 500.0
-offset_bottom = 300.0
+offset_bottom = 250.0
 
 [node name="Label1" type="Label" parent="Resources/Increases"]
 layout_mode = 0
@@ -357,15 +302,15 @@ horizontal_alignment = 1
 [node name="Structures" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 560.0
+offset_top = 630.0
 offset_right = 500.0
-offset_bottom = 910.0
+offset_bottom = 930.0
 
 [node name="Title" type="Label" parent="Structures"]
 layout_mode = 0
 offset_right = 500.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
 text = "Structures"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -373,39 +318,39 @@ vertical_alignment = 1
 [node name="Buttons" type="BoxContainer" parent="Structures"]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 100.0
+offset_top = 50.0
 offset_right = 450.0
-offset_bottom = 200.0
+offset_bottom = 150.0
 alignment = 1
 
 [node name="Button1" type="Button" parent="Structures/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_s2int")
+theme = ExtResource("6_w1q2m")
 disabled = true
 
 [node name="Button2" type="Button" parent="Structures/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_ujyfl")
+theme = ExtResource("7_js2d1")
 disabled = true
 
 [node name="Button3" type="Button" parent="Structures/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_5p0gv")
+theme = ExtResource("8_h07v0")
 disabled = true
 
 [node name="Button4" type="Button" parent="Structures/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_mny3k")
+theme = ExtResource("9_qfkyb")
 disabled = true
 
 [node name="Labels" type="Control" parent="Structures"]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 200.0
+offset_top = 150.0
 offset_right = 500.0
 offset_bottom = 300.0
 
@@ -652,27 +597,20 @@ centered = false
 
 [node name="EndTurnButton" type="Button" parent="."]
 offset_left = 50.0
-offset_top = 930.0
+offset_top = 950.0
 offset_right = 450.0
-offset_bottom = 1030.0
+offset_bottom = 1050.0
 theme_override_font_sizes/font_size = 32
 text = "End Turn"
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_left = 50.0
-offset_top = 1040.0
-offset_right = 450.0
-offset_bottom = 1070.0
-
-[node name="ExportButton" type="LinkButton" parent="CenterContainer"]
-layout_mode = 2
-toggle_mode = true
-text = "Export"
-
-[connection signal="pressed" from="ResetTurnButton" to="." method="_on_ResetTurnButton_pressed"]
+[connection signal="pressed" from="Buttons/ExportButton" to="." method="_on_exportButton_pressed"]
+[connection signal="pressed" from="Buttons/ResetTurnButton" to="." method="_on_ResetTurnButton_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Resources/Labels/Lumber" to="." method="_on_lumber_button_pressed"]
+[connection signal="pressed" from="Resources/Labels/Stone" to="." method="_on_stone_button_pressed"]
+[connection signal="pressed" from="Resources/Labels/Grain" to="." method="_on_grain_button_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Structures/Buttons/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
-[connection signal="pressed" from="CenterContainer/ExportButton" to="." method="_on_exportButton_pressed"]

@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 
 
 # Called when the game is over
-func end_game() -> void:
+func end_game(quit: bool) -> void:
 	# different game modes
 	if Config.gameMode == 0:
 		if len(map.get_owned_tiles(Config.player)) <= len(map.get_owned_tiles(Config.opponent)):
@@ -38,7 +38,13 @@ func end_game() -> void:
 		else:
 			Config.winner = Config.player
 	elif Config.gameMode == 1:
-		Config.winner = currentPlayer
+		if Config.player.gold <= Config.opponent.gold:
+			Config.winner = Config.opponent
+		else:
+			Config.winner = Config.player
+	
+	if quit:
+		Config.winner = Config.opponent
 	
 	# reset players
 	Config.player.reset_player()
@@ -50,7 +56,6 @@ func end_game() -> void:
 	
 	# reset other config data
 	Config.import = false
-	Config.multiplayerSelected = false
 	Config.tutorial = false
 	
 	# make a restart possible
@@ -68,11 +73,11 @@ func end_turn() -> void:
 		# check if game has ended
 		if turnNumber >= Config.maxNumberOfTurns:
 			if Config.multiplayerSelected and currentPlayer == Config.opponent or not Config.multiplayerSelected:
-				end_game()
+				end_game(false)
 				return
 	elif Config.gameMode == 1:
 		if currentPlayer.gold >= Config.maxNumberOfResource:
-			end_game()
+			end_game(false)
 			return
 	
 	# update the resources of the player
@@ -156,7 +161,7 @@ func export_data() -> String:
 	
 	return export_string
 
-
+# Import game from json
 func import_data(importData: String) -> void:
 	var json = JSON.new()
 	var import_status = json.parse(importData)
@@ -183,38 +188,38 @@ func import_data(importData: String) -> void:
 			currentPlayer = Config.opponent
 		Config.gameMode = data_received.meta.gameMode
 		Config.multiplayerSelected = data_received.meta.multiplayerSelected
+		if Config.import:
+			display_story("Game succesfully imported!")
 	else:
-		print("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
+		display_story("JSON Parse Error! Game could not be imported!")
 
+# Display tutorial explaining the game
 func tutorial() -> void:
 	
 	if tutorialStep == 0:
 		$SubViewportContainer/SubViewport/Camera.zoom = Vector2(4,4)
 		$SubViewportContainer/SubViewport/Camera.offset = Vector2(0,475)
 		$TutorialDialog.dialog_text = "You start at the bottom with the blue capital.\n"
-		$TutorialDialog.dialog_text += "Click on it to see tiles you can conquer!\n"
-		$TutorialDialog.dialog_text += "If you click on a tile that is highlighted green,\nyou can conquer it."
+		$TutorialDialog.dialog_text += "Click on it to see tiles you can conquer by clicking!\n"
+		$TutorialDialog.dialog_text += "Move the map by right-clicking and dragging.\n"
 		$TutorialDialog.position.x = 100
 		$TutorialDialog.position.y = 100
 	elif tutorialStep == 1:
-		$TutorialDialog.dialog_text = "You can conquer 5 tiles per turn.\n"
-		$TutorialDialog.dialog_text += "The progress bar shows the amount of tiles\nyou and your opponent control.\n"
-		$TutorialDialog.dialog_text += "You can also see whos turn it is."
+		$TutorialDialog.dialog_text = "The first number shows the current player and the turn. You can conquer 5 tiles per turn.\n"
+		$TutorialDialog.dialog_text += "The progress bars show the amount of tiles that are controlled by this player.\n"
 		$TutorialDialog.position.x = 970
 	elif tutorialStep == 2:
-		$TutorialDialog.dialog_text = "Here you can see your resources.\n"
-		$TutorialDialog.dialog_text += "The green numbers show how many resources\nyou will get with the next turn."
-		$TutorialDialog.position.y = 400
+		$TutorialDialog.dialog_text = "To export the game, just copy the text and save it somewhere!"
+		$TutorialDialog.dialog_text += " If you make a mistake, you can reset your turn or quit the game."
+		$TutorialDialog.position.y = 300
 	elif tutorialStep == 3:
-		$TutorialDialog.dialog_text = "With the buttons on the right\nyou can build different structures.\n"
-		$TutorialDialog.dialog_text += "The costs for the build are displayed below.\n"
-		$TutorialDialog.dialog_text += "You can only click on them i\nyou have enough resources!"
-		$TutorialDialog.position.y = 700
+		$TutorialDialog.dialog_text = "Here you can see your resources. Click on them to buy them for one gold."
+		$TutorialDialog.dialog_text += " The green numbers show how many resources you will get with the next turn."
+		$TutorialDialog.position.y = 500
 	elif tutorialStep == 4:
-		$TutorialDialog.dialog_text = "To finish your turn, press this button.\n"
-		$TutorialDialog.dialog_text += "You can export your game with the link below.\n"
-		$TutorialDialog.dialog_text += "Just copy the text and save it somewhere!"
-		$TutorialDialog.position.y = 850
+		$TutorialDialog.dialog_text = "With the buttons on the right you can build different structures."
+		$TutorialDialog.dialog_text += " The costs for the build are displayed below. You can only click on them if you have enough resources!"
+		$TutorialDialog.position.y = 700
 	elif tutorialStep == 5:
 		$TutorialDialog.dialog_text = "That's it!\n"
 		$TutorialDialog.dialog_text += "Good luck conquering the hex tiles!"

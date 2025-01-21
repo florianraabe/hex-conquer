@@ -9,14 +9,16 @@ extends CanvasLayer
 
 
 # text displaying the current turn
-@onready var turn: Label = get_node("TurnLabel")
-@onready var tile: Label = get_node("TileLabel")
+@onready var turn: Label = get_node("Progress/TurnLabel")
+@onready var tile: Label = get_node("Progress/TileLabel")
 
 # progress bar displaying the relative amount of conquered territory
 @onready var labelPlayer1: Label = get_node("Progress/LabelPlayer1")
 @onready var labelPlayer2: Label = get_node("Progress/LabelPlayer2")
 @onready var progressBarPlayer1: ProgressBar = get_node("Progress/ProgressBarPlayer1")
 @onready var progressBarPlayer2: ProgressBar = get_node("Progress/ProgressBarPlayer2")
+@onready var progressLabelPlayer1: Label = get_node("Progress/ProgressLabelPlayer1")
+@onready var progressLabelPlayer2: Label = get_node("Progress/ProgressLabelPlayer2")
 
 # text displaying the resources
 @onready var resourceAmount1: Label = get_node("Resources/Amounts/Label1")
@@ -46,7 +48,7 @@ extends CanvasLayer
 @onready var endTurnButton: Node = get_node("EndTurnButton")
 
 # export button
-@onready var exportButton: Node = get_node("CenterContainer/ExportButton")
+@onready var exportButton: Node = get_node("Buttons/ExportButton")
 
 
 func init_hud() -> void:
@@ -78,16 +80,17 @@ func update_hud():
 	structureCost4.text = Config.mine.cost_string()
 	
 	# set number of turn
+	turn.text = str(main.currentPlayer.terrain_id) + ": Turn " + str(main.turnNumber)
 	if Config.gameMode == 0:
-		turn.text = "Player " + str(main.currentPlayer.terrain_id) + ": Turn " + str(main.turnNumber) + " / " + str(Config.maxNumberOfTurns)
-	else:
-		turn.text = "Player " + str(main.currentPlayer.terrain_id) + ": Turn " + str(main.turnNumber)
-
+		turn.text += " / " + str(Config.maxNumberOfTurns)
+	
 	tile.text = str(map.tilesPerTurn) + " / " + str(Config.maxTilesPerTurn) + " Tiles"
 	
 	# set progress bar
 	progressBarPlayer1.value = len(map.get_owned_tiles(Config.player)) * 200 / 397
 	progressBarPlayer2.value = len(map.get_owned_tiles(Config.opponent)) * 200  / 397
+	progressLabelPlayer1.text = str(len(map.get_owned_tiles(Config.player)))
+	progressLabelPlayer2.text = str(len(map.get_owned_tiles(Config.opponent)))
 	
 	# hide structures
 	set_buttons_visibility([])
@@ -108,6 +111,10 @@ func set_buttons_visibility(structures: Array) -> void:
 		structureButton3.disabled = false
 	if Config.mine in structures:
 		structureButton4.disabled = false
+
+# Quit the current game
+func _on_QuitButton_pressed() -> void:
+	main.end_game(true)
 
 # Reset the current turn
 func _on_ResetTurnButton_pressed() -> void:
@@ -139,12 +146,33 @@ func _on_button_4_pressed() -> void:
 	map.place_structure(Config.mine)
 	update_hud()
 
+# Trade gold for lumber
+func _on_lumber_button_pressed() -> void:
+	if main.currentPlayer.gold > 0:
+		main.currentPlayer.gold -= 1
+		main.currentPlayer.lumber += 1
+		update_hud()
+
+# Trade gold for stone
+func _on_stone_button_pressed() -> void:
+	if main.currentPlayer.gold > 0:
+		main.currentPlayer.gold -= 1
+		main.currentPlayer.stone += 1
+		update_hud()
+
+# Trade gold for grain
+func _on_grain_button_pressed() -> void:
+	if main.currentPlayer.gold > 0:
+		main.currentPlayer.gold -= 1
+		main.currentPlayer.grain += 1
+		update_hud()
+
 # Export the game state
 func _on_exportButton_pressed() -> void:
 	$/root/Main/TextEdit.text = main.export_data()
 	$/root/Main/TextEdit.visible = not $/root/Main/TextEdit.visible
 	
-	if exportButton.text == "Hide export":
+	if exportButton.text != "Export":
 		exportButton.text = "Export"
 	else:
-		exportButton.text = "Hide export"
+		exportButton.text = "Hide\nExport"
