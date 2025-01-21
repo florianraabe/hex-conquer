@@ -1,7 +1,7 @@
 extends Node
 
 # --- Version ---
-const version: String = "3.0.0"
+const version: String = "4.0.0"
 
 # --- Import ---
 var import: bool = false
