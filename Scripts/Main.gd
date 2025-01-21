@@ -213,8 +213,8 @@ func tutorial() -> void:
 		$TutorialDialog.dialog_text += " If you make a mistake, you can reset your turn or quit the game."
 		$TutorialDialog.position.y = 300
 	elif tutorialStep == 3:
-		$TutorialDialog.dialog_text = "Here you can see your resources.\n"
-		$TutorialDialog.dialog_text += "The green numbers show how many resources you will get with the next turn."
+		$TutorialDialog.dialog_text = "Here you can see your resources. Click on them to buy them for one gold."
+		$TutorialDialog.dialog_text += " The green numbers show how many resources you will get with the next turn."
 		$TutorialDialog.position.y = 500
 	elif tutorialStep == 4:
 		$TutorialDialog.dialog_text = "With the buttons on the right you can build different structures."
