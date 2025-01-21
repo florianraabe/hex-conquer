@@ -205,24 +205,21 @@ func tutorial() -> void:
 		$TutorialDialog.position.x = 100
 		$TutorialDialog.position.y = 100
 	elif tutorialStep == 1:
-		$TutorialDialog.dialog_text = "You can conquer 5 tiles per turn.\n"
-		$TutorialDialog.dialog_text += "The progress bars show the amount of tiles\nthat are controlled.\n"
-		$TutorialDialog.dialog_text += "You can also see whos turn it is and reset your turn."
+		$TutorialDialog.dialog_text = "The first number shows the current player and the turn. You can conquer 5 tiles per turn.\n"
+		$TutorialDialog.dialog_text += "The progress bars show the amount of tiles that are controlled by this player.\n"
 		$TutorialDialog.position.x = 970
 	elif tutorialStep == 2:
-		$TutorialDialog.dialog_text = "Here you can see your resources.\n"
-		$TutorialDialog.dialog_text += "The green numbers show how many resources\nyou will get with the next turn."
-		$TutorialDialog.position.y = 400
+		$TutorialDialog.dialog_text = "To export the game, just copy the text and save it somewhere!"
+		$TutorialDialog.dialog_text += " If you make a mistake, you can reset your turn or quit the game."
+		$TutorialDialog.position.y = 300
 	elif tutorialStep == 3:
-		$TutorialDialog.dialog_text = "With the buttons on the right\nyou can build different structures.\n"
-		$TutorialDialog.dialog_text += "The costs for the build are displayed below.\n"
-		$TutorialDialog.dialog_text += "You can only click on them i\nyou have enough resources!"
-		$TutorialDialog.position.y = 700
+		$TutorialDialog.dialog_text = "Here you can see your resources.\n"
+		$TutorialDialog.dialog_text += "The green numbers show how many resources you will get with the next turn."
+		$TutorialDialog.position.y = 500
 	elif tutorialStep == 4:
-		$TutorialDialog.dialog_text = "To finish your turn, press this button.\n"
-		$TutorialDialog.dialog_text += "You can export your game with the link below.\n"
-		$TutorialDialog.dialog_text += "Just copy the text and save it somewhere!"
-		$TutorialDialog.position.y = 850
+		$TutorialDialog.dialog_text = "With the buttons on the right you can build different structures."
+		$TutorialDialog.dialog_text += " The costs for the build are displayed below. You can only click on them if you have enough resources!"
+		$TutorialDialog.position.y = 700
 	elif tutorialStep == 5:
 		$TutorialDialog.dialog_text = "That's it!\n"
 		$TutorialDialog.dialog_text += "Good luck conquering the hex tiles!"
